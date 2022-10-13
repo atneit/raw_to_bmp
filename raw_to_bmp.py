@@ -22,8 +22,8 @@ def convert_raw_to_bitmap(rawdata):
     bw -= bw % 8
     truncate_to = (bw**2)//8
 
-    print(f"\tIgnoring last {len(rawdata) - truncate_to} bytes")
-    print(f"\tMaking a {bw}x{bw} monochrome bitmap image")
+    print(f"Ignoring last {len(rawdata) - truncate_to} bytes")
+    print(f"Making a {bw}x{bw} monochrome bitmap image")
     Bw=bw//8
     rows=[list(rawdata[i*Bw:(i+1)*Bw]) for i in range(0, bw)]
 
@@ -32,9 +32,6 @@ def convert_raw_to_bitmap(rawdata):
 
 
 def Main(input, output):
-    smile = bytes([0xFF, 0x81, 0xA5, 0x81, 0xA5, 0xBD, 0x81, 0xFF])
-    open("python/smile.dat", "wb").write(smile)
-
     print(f"Reading file: {input}")
     random = open(input, "rb").read()
 
